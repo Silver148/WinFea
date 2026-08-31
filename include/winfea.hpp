@@ -1,3 +1,15 @@
+/*
+
+WinFea(Window Feather)
+
+A lightweight framework to build light apps :).
+
+Made by: Juan Yaguaro(aka silverhacker)
+
+License: GPL-2.0
+
+*/
+
 #ifndef WINFEA_HPP
 #define WINFEA_HPP
 #include <SDL3/SDL.h>
