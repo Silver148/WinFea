@@ -10,6 +10,8 @@ add_library(WinFea SHARED
     src/winfea.cpp
 )
 
+set_target_properties(WinFea PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON) # DLL for Windows
+
 target_include_directories(WinFea 
     PUBLIC 
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
