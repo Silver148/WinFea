@@ -13,8 +13,6 @@ License: GPL-2.0
 #include "winfea.hpp"
 #include <iostream>
 #include <string>
-#include <chrono>
-#include <thread>
 #include <SDL3/SDL.h>
 
 void WinFea::Init(int flags){
