@@ -29,7 +29,7 @@ render WinFea::MakeWindow(render& r, win& w, std::string title, int width, int h
 
 void WinFea::WinFeaWindow::AddObject(RenderableObject* object){
     if(object){
-        renderObjects_.push_back(object);
+        renderObjects.push_back(object);
     }
 }
 
@@ -42,7 +42,7 @@ void WinFea::WinFeaWindow::RenderAll(render r) const{
     SDL_SetRenderDrawColor(r, 0, 0, 0, 255);
     SDL_RenderClear(r);
 
-    for(const auto* object : renderObjects_){
+    for(const auto* object : renderObjects){
         if(object){
             object->Render(r);
         }

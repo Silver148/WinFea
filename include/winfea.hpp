@@ -41,7 +41,7 @@ namespace WinFea{
         virtual ~WinFeaWindow() = default;
 
     private:
-        std::vector<RenderableObject*> renderObjects_;
+        std::vector<RenderableObject*> renderObjects;
         void Shutdown(win w, render r);
     };
 
