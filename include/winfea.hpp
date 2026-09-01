@@ -13,25 +13,39 @@ License: GPL-2.0
 #ifndef WINFEA_HPP
 #define WINFEA_HPP
 #include <SDL3/SDL.h>
+#include <SDL3_image/SDL_image.h>
+#include <iostream>
 #include <string>
+#include <vector>
 
-#define VIDEO SDL_INIT_VIDEO
-#define win SDL_Window*
-#define render SDL_Renderer*
+inline constexpr SDL_InitFlags VIDEO = SDL_INIT_VIDEO;
+using win = SDL_Window*;
+using render = SDL_Renderer*;
 
 namespace WinFea{
     void Init(int flags);
     render MakeWindow(render& r, win& w, std::string title, int width, int height);
 
-    class WinFeaWindow{
-
-        public:
-            void Loop(win w, render r);
-            virtual void Render(render r);
-
-        private:
-            void Shutdown(win w, render r);
+    class RenderableObject {
+    public:
+        virtual ~RenderableObject() = default;
+        virtual void Render(render r) const = 0;
     };
+
+    class WinFeaWindow {
+    public:
+        void AddObject(RenderableObject* object);
+        void Render(render r, RenderableObject& object);
+        void RenderAll(render r) const;
+        void Loop(win w, render r);
+        virtual ~WinFeaWindow() = default;
+
+    private:
+        std::vector<RenderableObject*> renderObjects_;
+        void Shutdown(win w, render r);
+    };
+
+    void Render(WinFeaWindow& window, RenderableObject& object);
 };
 
 #endif
