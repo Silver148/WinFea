@@ -1,3 +1,15 @@
+/*
+
+WinFea(Window Feather)
+
+A lightweight framework to build light apps :).
+
+Made by: Juan Yaguaro(aka silverhacker)
+
+License: GPL-2.0
+
+*/
+
 #ifndef WINFEA_IMAGES_HPP
 #define WINFEA_IMAGES_HPP
 #include "winfea.hpp"
@@ -21,7 +33,7 @@ public:
         }
     }
 
-    SDL_Texture* ShowImage(render r, std::string path, float x, float y);
+    SDL_Texture* LoadImage(render r, std::string path, float x, float y);
     SDL_Texture* RedimensionTexture(float w, float h);
     SDL_Texture* GetTexture() const { return texture; }
 

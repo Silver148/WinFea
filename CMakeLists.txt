@@ -6,11 +6,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(SDL3 REQUIRED)
 find_package(SDL3_image REQUIRED)
-
+find_package(SDL3_ttf REQUIRED)
 
 add_library(WinFea SHARED 
     src/winfea.cpp
     src/winfea_images.cpp
+    src/winfea_text.cpp
 )
 
 set_target_properties(WinFea PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON) # DLL for Windows
@@ -24,6 +25,7 @@ target_include_directories(WinFea
 target_link_libraries(WinFea PUBLIC
     SDL3::SDL3
     SDL3_image::SDL3_image
+    SDL3_ttf::SDL3_ttf
 )
 
 add_executable(Test test/test.cpp)

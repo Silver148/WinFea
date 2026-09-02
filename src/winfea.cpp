@@ -17,6 +17,11 @@ void WinFea::Init(int flags){
         std::cout << "Failed to init SDL: " << SDL_GetError() << std::endl;
         return;
     }
+
+    if(!TTF_Init()){
+        std::cout << "Failed to init SDL_ttf: " << SDL_GetError() << std::endl;
+        return;
+    }
 }
 
 render WinFea::MakeWindow(render& r, win& w, std::string title, int width, int height){
