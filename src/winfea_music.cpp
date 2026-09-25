@@ -36,7 +36,7 @@ bool WinFeaMusic::LoadMusic(const std::string& path){
 
 bool WinFeaMusic::PlayMusic(float volume, int loops){
     if (!track) {
-        std::cerr << "Error: No track available to play music!" << std::endl;
+        std::cerr << "Error: No track available to play music! " << SDL_GetError() << std::endl;
         return false;
     }
 

@@ -15,7 +15,7 @@ void WinFea::Init(int flags){
     }
 
     if(flags & AUDIO){
-        if(MIX_Init() == 0){
+        if(!MIX_Init()){
             std::cout << "Failed to init SDL_mixer: " << SDL_GetError() << std::endl;
             return;
         }
