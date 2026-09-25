@@ -7,11 +7,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(SDL3 REQUIRED)
 find_package(SDL3_image REQUIRED)
 find_package(SDL3_ttf REQUIRED)
+find_package(SDL3_mixer REQUIRED)
 
 add_library(WinFea SHARED 
     src/winfea.cpp
+    src/winfea_events.cpp
     src/winfea_images.cpp
     src/winfea_text.cpp
+    src/winfea_music.cpp
 )
 
 set_target_properties(WinFea PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON) # DLL for Windows
@@ -26,6 +29,7 @@ target_link_libraries(WinFea PUBLIC
     SDL3::SDL3
     SDL3_image::SDL3_image
     SDL3_ttf::SDL3_ttf
+    SDL3_mixer::SDL3_mixer
 )
 
 add_executable(Test test/test.cpp)

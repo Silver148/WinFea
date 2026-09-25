@@ -1,18 +1,18 @@
 /*
-
 WinFea(Window Feather)
-
 A lightweight framework to build light apps :).
-
 Made by: Juan Yaguaro(aka silverhacker)
-
 License: GPL-2.0
-
 */
 
 #include "winfea_images.hpp"
 
 SDL_Texture* WinFeaImage::LoadImage(render r, std::string path, float x, float y){
+    if(!r){
+        std::cerr << "Failed to load image '" << path << "': renderer is null." << std::endl;
+        return nullptr;
+    }
+
     if(texture){
         SDL_DestroyTexture(texture);
         texture = nullptr;

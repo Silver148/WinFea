@@ -1,0 +1,12 @@
+/*
+WinFea(Window Feather)
+A lightweight framework to build light apps :).
+Made by: Juan Yaguaro(aka silverhacker)
+License: GPL-2.0
+*/
+
+#include "winfea.hpp"
+#include "winfea_events.hpp"
+#include "winfea_text.hpp"
+#include "winfea_images.hpp"
+#include "winfea_music.hpp"
