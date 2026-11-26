@@ -15,6 +15,7 @@ add_library(WinFea SHARED
     src/winfea_images.cpp
     src/winfea_text.cpp
     src/winfea_music.cpp
+    src/winfea_helpers.cpp
 )
 
 set_target_properties(WinFea PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON) # DLL for Windows

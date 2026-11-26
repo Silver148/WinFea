@@ -19,24 +19,27 @@ int main() {
         return -1;
     }
 
-    /*Variables for window, image, "hello world" and music*/
+    /*Variables for window, image, "hello world", rectangle and music*/
     WinFea::WinFeaWindow winExample;
     WinFeaImage image;
     WinFeaText text;
     WinFeaMusic music;
+    WinFeaRectangle rectangle(600, 200, 20);
+    rectangle.SetPosition(250, 700);
 
     int x = 250, y = 250;
 
     image.LoadImage(r, "../logo/WinFea-logo.png", 0, 0); //Load Image
     image.RedimensionTexture(1000, 1000); //Redimension Image to 1000x1000px
     WinFea::Render(winExample, image); //Render Image
+    WinFea::Render(winExample, rectangle); //Render rectangle
 
     text.LoadFont("../fonts/stocky.ttf", 48); //Load TTF Font with 48 size
     text.ShowText(r, "Hello World!", WHITE, x, y); //"Hello World!" with white color
     WinFea::Render(winExample, text); //Render "Hello World!"
 
     music.LoadMusic("../test/test.ogg"); //Load Music
-    music.PlayMusic(1.0f, -1); //Play Music with loop
+    music.PlayMusic(0.15f, -1); //Play Music with loop
 
     WinFeaEvent events;
 
